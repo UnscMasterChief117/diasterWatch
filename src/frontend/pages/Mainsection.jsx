@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import Homepage from './Homepage';
+import Home from './Homepage';
 import CodeNotebookApp from '../components/CodeNotebookApp';
 import ProfilePage from '../Profile/ProfilePage';
 import Cars from '../Cars';
@@ -18,7 +18,7 @@ const Mainsection = () => {
   return (
     <div className=''>
       <Routes>
-        <Route path="/" element={<Homepage />} />
+        <Route path="/" element={<Home />} />
          <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} />} /> 
          <Route path="/notebook" element={<CodeNotebookApp />} />
           <Route path="/profile" element={<ProfilePage />} />

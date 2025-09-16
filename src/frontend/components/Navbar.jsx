@@ -32,13 +32,14 @@ export default function Navbar() {
 
   return (
     <nav className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[92%] max-w-6xl">
-      <div className="backdrop-blur-xl bg-gray-900/70 dark:bg-gray-800/80 border border-gray-700/50 rounded-2xl shadow-lg shadow-red-900/40">
+      <div className="backdrop-blur-xl bg-white/70 dark:bg-gray-900/80 border border-gray-300/50 dark:border-gray-700/50 rounded-2xl shadow-lg shadow-red-900/40 transition-colors duration-300">
         <div className="flex justify-between items-center px-6 py-3">
 
           {/* Logo */}
           <Link
             to="/"
-            className="text-2xl font-extrabold bg-gradient-to-r from-red-400 via-orange-500 to-yellow-400 bg-clip-text text-transparent animate-pulse"
+            className="text-2xl font-extrabold bg-gradient-to-r from-red-500 via-orange-500 to-yellow-400 bg-clip-text text-transparent animate-pulse  
+            hover:from-red-600 hover:via-orange-600 hover:to-yellow-500 transition-all duration-300"
           >
             🌐 Rescue Radar
           </Link>
@@ -49,26 +50,31 @@ export default function Navbar() {
               <Link
                 key={item.name}
                 to={item.path}
-                className="relative text-white dark:text-gray-200 font-medium group"
+                className="relative font-medium group text-gray-800 dark:text-gray-200 transition-colors"
               >
                 {item.name}
                 <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-gradient-to-r from-red-400 to-orange-500 transition-all duration-300 group-hover:w-full"></span>
               </Link>
             ))}
 
-            <button className="bg-gradient-to-r from-red-500 to-orange-500 px-4 py-1.5 rounded-xl font-semibold hover:scale-105 transition transform shadow-md">
+            {/* Logout Button */}
+            <button
+              className="px-4 py-1.5 rounded-xl font-semibold hover:scale-105 transition transform shadow-md 
+              bg-gradient-to-r from-red-500 to-orange-500 text-white
+              dark:from-orange-400 dark:to-red-600"
+            >
               Logout
             </button>
 
             {/* Dark Mode Toggle */}
             <button
               onClick={toggleDarkMode}
-              className="ml-4 p-2 rounded-full bg-gray-700/70 hover:bg-gray-600/70 dark:bg-gray-600/70 dark:hover:bg-gray-500/70 transition shadow-md"
+              className="ml-4 p-2 rounded-full bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 transition shadow-md"
             >
               {isDarkMode ? (
                 <FiSun className="text-yellow-400" size={20} />
               ) : (
-                <FiMoon className="text-blue-300" size={20} />
+                <FiMoon className="text-blue-500" size={20} />
               )}
             </button>
           </div>
@@ -77,20 +83,20 @@ export default function Navbar() {
           <div className="md:hidden flex items-center space-x-2">
             <button onClick={() => setIsOpen(!isOpen)}>
               {isOpen ? (
-                <X size={28} className="text-white" />
+                <X size={28} className="text-gray-800 dark:text-white" />
               ) : (
-                <Menu size={28} className="text-white" />
+                <Menu size={28} className="text-gray-800 dark:text-white" />
               )}
             </button>
             {/* Dark Mode Mobile */}
             <button
               onClick={toggleDarkMode}
-              className="p-2 rounded-full bg-gray-700/70 hover:bg-gray-600/70 transition"
+              className="p-2 rounded-full bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 transition"
             >
               {isDarkMode ? (
                 <FiSun className="text-yellow-400" size={20} />
               ) : (
-                <FiMoon className="text-blue-300" size={20} />
+                <FiMoon className="text-blue-500" size={20} />
               )}
             </button>
           </div>
@@ -98,19 +104,21 @@ export default function Navbar() {
 
         {/* Mobile Dropdown */}
         {isOpen && (
-          <div className="md:hidden bg-gray-800/95 dark:bg-gray-700/90 rounded-b-2xl px-6 py-4 space-y-3 animate-fadeIn">
+          <div className="md:hidden rounded-b-2xl px-6 py-4 space-y-3 animate-fadeIn bg-white/90 dark:bg-gray-800/95 transition-colors duration-300">
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 to={item.path}
-                className="block text-white dark:text-gray-200 font-medium hover:text-red-400 transition"
+                className="block font-medium text-gray-800 dark:text-gray-200 hover:text-red-500 dark:hover:text-red-400 transition"
                 onClick={() => setIsOpen(false)}
               >
                 {item.name}
               </Link>
             ))}
             <button
-              className="w-full bg-gradient-to-r from-red-500 to-orange-500 px-4 py-2 rounded-xl font-semibold hover:scale-105 transition transform shadow-md"
+              className="w-full px-4 py-2 rounded-xl font-semibold hover:scale-105 transition transform shadow-md
+              bg-gradient-to-r from-red-500 to-orange-500 text-white
+              dark:from-orange-400 dark:to-red-600"
               onClick={() => setIsOpen(false)}
             >
               Logout
