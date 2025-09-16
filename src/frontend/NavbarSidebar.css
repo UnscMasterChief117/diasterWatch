@@ -1,0 +1,77 @@
+/* NavbarSidebar.css */
+.app-container {
+  display: flex;
+  min-height: 100vh;
+  background: #f9f9f9;
+  color: #222;
+  font-family: Arial, sans-serif;
+}
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: #ffffff;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  z-index: 1000;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #0077b6;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links li {
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.nav-links li:hover {
+  color: #0077b6;
+}
+
+/* Sidebar */
+.sidebar {
+  margin-top: 60px; /* offset for navbar */
+  width: 200px;
+  background: #ffffff;
+  border-right: 1px solid #ddd;
+  padding: 20px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin: 15px 0;
+  cursor: pointer;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.sidebar li:hover {
+  color: #0077b6;
+}
+
+/* Main Content */
+.main-content {
+  margin-top: 60px;
+  margin-left: 200px;
+  padding: 20px;
+}
